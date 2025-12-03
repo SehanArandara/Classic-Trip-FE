@@ -47,7 +47,7 @@ const FeaturedTrips = () => {
                                 </div>
                                 {/* Type Badge */}
                                 <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
-                                    {pkg.type === 'visit-saudi' ? 'Visit Saudi' : pkg.type === 'global' ? 'Global' : 'Featured'}
+                                    {pkg.subType || pkg.type}
                                 </div>
                             </div>
 

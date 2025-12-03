@@ -68,7 +68,7 @@ const KSABreadcrumb = ({ pageName }) => {
                                     onClick={() => handleNavigation('/ksa/globalPackages')}
                                     className="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors text-sm font-medium"
                                 >
-                                    Global Holidays
+                                    Global Packages
                                 </button>
                                 <button
                                     onClick={() => handleNavigation('/ksa/visit-saudi')}

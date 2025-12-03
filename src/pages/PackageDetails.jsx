@@ -3,7 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/home/Navbar';
 import Footer from '../components/common/Footer';
 import { packages } from '../data/data';
-import { MapPin, Clock, Calendar, Check, Star, ArrowRight, ChevronRight, Home } from 'lucide-react';
+import PackageSlider from '../components/ksa/PackageSlider';
+import Breadcrumb from '../components/common/Breadcrumb';
+import { MapPin, Clock, Calendar, Check, Star, ArrowRight } from 'lucide-react';
 
 const PackageDetails = () => {
     const { id } = useParams();
@@ -25,6 +27,30 @@ const PackageDetails = () => {
             </div>
         );
     }
+
+    const relatedPackages = pkg.subType
+        ? packages.filter(p => p.subType === pkg.subType && p.id !== pkg.id)
+        : [];
+
+    // Build breadcrumb path dynamically
+    const breadcrumbPath = [];
+
+    if (pkg.type === 'KSA') {
+        breadcrumbPath.push({ label: 'KSA', href: '/ksa' });
+    } else if (pkg.type) {
+        breadcrumbPath.push({ label: pkg.type, href: '#' });
+    }
+
+    if (pkg.subType) {
+        const subTypeHref = pkg.subType === 'Global Packages'
+            ? '/ksa/globalPackages'
+            : pkg.subType === 'Visit Saudi'
+                ? '/ksa/visit-saudi'
+                : '#';
+        breadcrumbPath.push({ label: pkg.subType, href: subTypeHref });
+    }
+
+    breadcrumbPath.push({ label: pkg.title, isActive: true });
 
     return (
         <div className="bg-white min-h-screen">
@@ -54,17 +80,7 @@ const PackageDetails = () => {
             </div>
 
             {/* Breadcrumb */}
-            <div className="bg-gray-50 border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                        <Link to="/" className="hover:text-primary"><Home size={16} /></Link>
-                        <ChevronRight size={16} />
-                        <Link to="/ksa" className="hover:text-primary">KSA</Link>
-                        <ChevronRight size={16} />
-                        <span className="text-gray-900 font-medium">{pkg.title}</span>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb path={breadcrumbPath} theme="light" />
 
             {/* Content */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -173,6 +189,18 @@ const PackageDetails = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Related Packages */}
+            {relatedPackages.length > 0 && (
+                <div className="bg-gray-50 border-t border-gray-200">
+                    <PackageSlider
+                        title="Related Packages"
+                        packages={relatedPackages}
+                        sectionId="related-packages"
+                        seeAllLink={pkg.subType === 'Global Packages' ? '/ksa/globalPackages' : pkg.subType === 'Visit Saudi' ? '/ksa/visit-saudi' : null}
+                    />
+                </div>
+            )}
 
             <Footer />
         </div>

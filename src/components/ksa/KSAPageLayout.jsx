@@ -1,21 +1,21 @@
 import React from 'react';
 import Navbar from '../home/Navbar';
 import Footer from '../common/Footer';
-import KSABreadcrumb from './KSABreadcrumb';
+import Breadcrumb from '../common/Breadcrumb';
 import KSAContact from './KSAContact';
 import Testimonials from '../common/Testimonials';
 import Blog from '../home/Blog';
 
 import { ksaNavLinks } from '../../data/data';
 
-const KSAPageLayout = ({ pageName, hero, packages, services }) => {
+const KSAPageLayout = ({ pageName, breadcrumbPath, hero, packages, services }) => {
     return (
         <div className="bg-gray-50 min-h-screen">
             {/* Header: Main Logo (in Navbar) */}
             <Navbar links={ksaNavLinks} />
 
             {/* Breadcrumbs */}
-            <KSABreadcrumb pageName={pageName} />
+            <Breadcrumb path={breadcrumbPath} theme="dark" />
 
             {/* Hero */}
             {hero}

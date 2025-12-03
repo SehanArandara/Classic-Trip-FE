@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight, MapPin, Clock } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const PackageSlider = ({ title, packages, sectionId }) => {
+const PackageSlider = ({ title, packages, sectionId, seeAllLink }) => {
     const scrollContainerRef = useRef(null);
     const navigate = useNavigate();
 
@@ -18,7 +18,9 @@ const PackageSlider = ({ title, packages, sectionId }) => {
     };
 
     const handleSeeAll = () => {
-        if (title === "Global Holidays") {
+        if (seeAllLink) {
+            navigate(seeAllLink);
+        } else if (title === "Global Packages") {
             navigate('/ksa/globalPackages');
         } else if (title === "Visit Saudi") {
             navigate('/ksa/visit-saudi');

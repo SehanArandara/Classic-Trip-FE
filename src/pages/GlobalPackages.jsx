@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import KSAPageLayout from '../components/ksa/KSAPageLayout';
 import SubPageHero from '../components/ksa/SubPageHero';
 import KSAServices from '../components/ksa/KSAServices';
 import { packages } from '../data/data';
 import { MapPin, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import TripPlannerWidget from '../components/common/TripPlannerWidget';
 
 const GlobalPackages = () => {
-    const globalPackages = packages.filter(pkg => pkg.type === 'global');
+    const globalPackages = packages.filter(pkg => pkg.subType === 'Global Packages');
 
     const scrollToPackages = () => {
         const element = document.getElementById('packages-grid');
@@ -84,12 +85,19 @@ const GlobalPackages = () => {
     );
 
     return (
-        <KSAPageLayout
-            pageName="Global Holidays"
-            hero={Hero}
-            packages={PackagesGrid}
-            services={<KSAServices />}
-        />
+        <>
+            <KSAPageLayout
+                pageName="Global Packages"
+                breadcrumbPath={[
+                    { label: 'KSA', href: '/ksa' },
+                    { label: 'Global Packages', isActive: true }
+                ]}
+                hero={Hero}
+                packages={PackagesGrid}
+                services={<KSAServices />}
+            />
+            <TripPlannerWidget pageType="global" />
+        </>
     );
 };
 

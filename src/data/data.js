@@ -30,39 +30,75 @@ export const destinations = [
 export const services = [
     {
         id: 1,
-        name: "Visa Assistance",
-        description: "Complete visa processing and documentation support",
-        icon: "FileText"
+        name: "Airline Tickets",
+        description: "Best deals on domestic and international flights",
+        icon: "Plane"
     },
     {
         id: 2,
-        name: "Hotel Booking",
+        name: "Worldwide Hotel Reservations",
         description: "Luxury and budget accommodations worldwide",
         icon: "Hotel"
     },
     {
         id: 3,
-        name: "Flight Tickets",
-        description: "Best deals on domestic and international flights",
-        icon: "Plane"
-    },
-    {
-        id: 4,
-        name: "Transport Services",
-        description: "Airport transfers and local transportation",
-        icon: "Car"
-    },
-    {
-        id: 5,
-        name: "Tour Packages",
-        description: "Curated travel experiences and guided tours",
-        icon: "Map"
-    },
-    {
-        id: 6,
         name: "Travel Insurance",
         description: "Comprehensive coverage for peace of mind",
         icon: "Shield"
+    },
+    {
+        id: 4,
+        name: "Meet and Assist Services",
+        description: "Professional airport assistance and fast-track services",
+        icon: "Users"
+    },
+    {
+        id: 5,
+        name: "Worldwide Airport Transfers",
+        description: "Reliable pickup and drop-off services globally",
+        icon: "Car"
+    },
+    {
+        id: 6,
+        name: "Worldwide Lounge Access",
+        description: "Premium airport lounge access for your comfort",
+        icon: "Coffee"
+    },
+    {
+        id: 7,
+        name: "Outbound Holiday Packages",
+        description: "Curated cruise and holiday packages worldwide",
+        icon: "Ship"
+    },
+    {
+        id: 8,
+        name: "Coach Tours and Rail Tickets",
+        description: "Scenic rail journeys and guided coach tours",
+        icon: "Train"
+    },
+    {
+        id: 9,
+        name: "MICE Travel Management",
+        description: "Meetings, Incentives, Conferences, and Exhibitions",
+        icon: "Briefcase"
+    },
+    {
+        id: 10,
+        name: "Crisis Management",
+        description: "24/7 support and emergency travel assistance",
+        icon: "AlertTriangle"
+    },
+    {
+        id: 11,
+        name: "Travel Alerts",
+        description: "Real-time updates on travel regulations and safety",
+        icon: "Bell"
+    },
+    {
+        id: 12,
+        name: "Visa Services",
+        description: "Complete visa processing and documentation support",
+        icon: "FileText"
     }
 ];
 
@@ -78,7 +114,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
         description: "Experience the glamour of Dubai with luxury hotels and exclusive tours",
         highlights: ["Burj Khalifa", "Desert Safari", "Dubai Mall"],
-        type: "general",
+        type: "Dubai",
+        subType: "General",
         isFeatured: true
     },
     {
@@ -90,7 +127,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80",
         description: "Sacred journey with premium accommodations and guided services",
         highlights: ["Umrah Package", "5-Star Hotels", "24/7 Support"],
-        type: "visit-saudi",
+        type: "KSA",
+        subType: "Visit Saudi",
         isFeatured: true
     },
     {
@@ -102,7 +140,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
         description: "Discover the historic charm and modern culture of London",
         highlights: ["Big Ben", "British Museum", "Thames Cruise"],
-        type: "global",
+        type: "KSA",
+        subType: "Global Packages",
         isFeatured: true
     },
     // KSA Global Packages
@@ -115,7 +154,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80",
         description: "Experience the breathtaking beauty of the Swiss Alps with luxury stays",
         highlights: ["Jungfraujoch", "Lake Geneva", "Chocolate Factory Tour"],
-        type: "global",
+        type: "KSA",
+        subType: "Global Packages",
         isFeatured: true
     },
     {
@@ -127,7 +167,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
         description: "Explore the historic and modern wonders of London",
         highlights: ["Buckingham Palace", "London Eye", "West End Shows"],
-        type: "global",
+        type: "KSA",
+        subType: "Global Packages",
         isFeatured: false
     },
     {
@@ -139,7 +180,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80",
         description: "Fall in love with the City of Lights",
         highlights: ["Eiffel Tower", "Louvre Museum", "Seine River Cruise"],
-        type: "global",
+        type: "KSA",
+        subType: "Global Packages",
         isFeatured: false
     },
     {
@@ -151,7 +193,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
         description: "Relax in Bali's stunning beaches and cultural temples",
         highlights: ["Ubud Rice Terraces", "Beach Resorts", "Temple Tours"],
-        type: "global",
+        type: "KSA",
+        subType: "Global Packages",
         isFeatured: true
     },
     {
@@ -163,7 +206,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80",
         description: "Ultimate luxury in overwater villas",
         highlights: ["Private Island", "Water Sports", "Spa Treatments"],
-        type: "global",
+        type: "KSA",
+        subType: "Global Packages",
         isFeatured: true
     },
     // Visit Saudi Packages
@@ -176,7 +220,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80",
         description: "Explore ancient Nabatean tombs and stunning desert landscapes",
         highlights: ["Hegra (Madain Saleh)", "Elephant Rock", "Old Town"],
-        type: "visit-saudi",
+        type: "KSA",
+        subType: "Visit Saudi",
         isFeatured: true
     },
     {
@@ -188,7 +233,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=800&q=80",
         description: "Experience world-class entertainment and events",
         highlights: ["Boulevard City", "Concerts", "International Cuisine"],
-        type: "visit-saudi",
+        type: "KSA",
+        subType: "Visit Saudi",
         isFeatured: false
     },
     {
@@ -200,7 +246,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=800&q=80",
         description: "Discover the bride of the Red Sea",
         highlights: ["Historic Jeddah", "Corniche", "Red Sea Diving"],
-        type: "visit-saudi",
+        type: "KSA",
+        subType: "Visit Saudi",
         isFeatured: true
     },
     {
@@ -212,7 +259,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
         description: "Pristine beaches and world-class diving",
         highlights: ["Luxury Resorts", "Scuba Diving", "Private Beaches"],
-        type: "visit-saudi",
+        type: "KSA",
+        subType: "Visit Saudi",
         isFeatured: true
     },
     {
@@ -224,7 +272,8 @@ export const packages = [
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
         description: "Cool mountain air and stunning green landscapes",
         highlights: ["Asir National Park", "Cable Car", "Traditional Villages"],
-        type: "visit-saudi",
+        type: "KSA",
+        subType: "Visit Saudi",
         isFeatured: false
     }
 ];
@@ -239,7 +288,21 @@ export const blogPosts = [
         author: "Sarah Johnson",
         date: "November 15, 2024",
         category: "Travel Tips",
-        link: "/blog/top-destinations-2024"
+        link: "/blog/1",
+        content: `
+            <p>As we step into 2024, the world of travel continues to evolve with new destinations emerging and classic favorites reinventing themselves. Whether you're seeking adventure, relaxation, or cultural immersion, this year's top destinations offer something for every type of traveler.</p>
+            
+            <h2>1. Kyoto, Japan</h2>
+            <p>Experience the perfect blend of ancient tradition and modern innovation in Japan's cultural heart. From stunning temples to cutting-edge technology, Kyoto offers an unforgettable journey through time.</p>
+            
+            <h2>2. Iceland</h2>
+            <p>Witness the raw beauty of nature with glaciers, geysers, and the mesmerizing Northern Lights. Iceland's dramatic landscapes make it a photographer's paradise.</p>
+            
+            <h2>3. Portugal</h2>
+            <p>Discover charming coastal towns, world-class wine regions, and vibrant cities. Portugal offers incredible value and authentic European experiences.</p>
+            
+            <p>Each destination on this list has been carefully selected based on unique experiences, cultural richness, and traveler satisfaction. Start planning your 2024 adventures today!</p>
+        `
     },
     {
         id: 2,
@@ -249,7 +312,21 @@ export const blogPosts = [
         author: "Michael Chen",
         date: "November 10, 2024",
         category: "Travel Guide",
-        link: "/blog/first-time-travelers"
+        link: "/blog/2",
+        content: `
+            <p>Embarking on your first international journey can be both exciting and overwhelming. With proper preparation and the right mindset, you can ensure a smooth and memorable experience.</p>
+            
+            <h2>Before You Go</h2>
+            <p>Start by checking passport validity, visa requirements, and necessary vaccinations. Make copies of important documents and store them separately from the originals.</p>
+            
+            <h2>Packing Smart</h2>
+            <p>Pack light and versatile clothing. Remember that you can always buy essentials at your destination. Don't forget universal adapters and portable chargers.</p>
+            
+            <h2>Money Matters</h2>
+            <p>Notify your bank about your travel plans, carry multiple payment methods, and always have some local currency for emergencies.</p>
+            
+            <p>Remember, the best trips often include unexpected moments. Stay flexible, embrace new experiences, and don't be afraid to step out of your comfort zone!</p>
+        `
     },
     {
         id: 3,
@@ -259,8 +336,72 @@ export const blogPosts = [
         author: "Emma Williams",
         date: "November 5, 2024",
         category: "Budget Travel",
-        link: "/blog/best-flight-deals"
-    }
+        link: "/blog/3",
+        content: `
+            <p>Finding affordable flights doesn't have to be a mystery. With the right strategies and tools, you can save hundreds of dollars on your next trip.</p>
+            
+            <h2>Timing is Everything</h2>
+            <p>Book domestic flights 1-3 months in advance and international flights 2-8 months ahead. Tuesday and Wednesday are typically the cheapest days to fly.</p>
+            
+            <h2>Be Flexible</h2>
+            <p>Use flexible date searches to find the cheapest days to travel. Sometimes shifting your trip by a day or two can result in significant savings.</p>
+            
+            <h2>Use Price Alerts</h2>
+            <p>Set up price alerts on multiple booking platforms. This way, you'll be notified when prices drop for your desired route.</p>
+            
+            <p>With these strategies in your arsenal, you'll be well-equipped to find the best flight deals and make your travel dreams more affordable!</p>
+        `
+    },
+    // add new sample blogs posts here
+    {
+        id: 4,
+        title: "How to Get the Best Flight Deals",
+        excerpt: "Save money on airfare with these insider secrets and booking strategies from travel experts...",
+        image: "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=600&q=80",
+        author: "Emma Williams",
+        date: "November 5, 2024",
+        category: "Budget Travel",
+        link: "/blog/3",
+        content: `
+            <p>Finding affordable flights doesn't have to be a mystery. With the right strategies and tools, you can save hundreds of dollars on your next trip.</p>
+            
+            <h2>Timing is Everything</h2>
+            <p>Book domestic flights 1-3 months in advance and international flights 2-8 months ahead. Tuesday and Wednesday are typically the cheapest days to fly.</p>
+            
+            <h2>Be Flexible</h2>
+            <p>Use flexible date searches to find the cheapest days to travel. Sometimes shifting your trip by a day or two can result in significant savings.</p>
+            
+            <h2>Use Price Alerts</h2>
+            <p>Set up price alerts on multiple booking platforms. This way, you'll be notified when prices drop for your desired route.</p>
+            
+            <p>With these strategies in your arsenal, you'll be well-equipped to find the best flight deals and make your travel dreams more affordable!</p>
+        `
+    },
+    {
+        id: 5,
+        title: "How to Get the Best Flight Deals",
+        excerpt: "Save money on airfare with these insider secrets and booking strategies from travel experts...",
+        image: "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=600&q=80",
+        author: "Emma Williams",
+        date: "November 5, 2024",
+        category: "Budget Travel",
+        link: "/blog/3",
+        content: `
+            <p>Finding affordable flights doesn't have to be a mystery. With the right strategies and tools, you can save hundreds of dollars on your next trip.</p>
+            
+            <h2>Timing is Everything</h2>
+            <p>Book domestic flights 1-3 months in advance and international flights 2-8 months ahead. Tuesday and Wednesday are typically the cheapest days to fly.</p>
+            
+            <h2>Be Flexible</h2>
+            <p>Use flexible date searches to find the cheapest days to travel. Sometimes shifting your trip by a day or two can result in significant savings.</p>
+            
+            <h2>Use Price Alerts</h2>
+            <p>Set up price alerts on multiple booking platforms. This way, you'll be notified when prices drop for your desired route.</p>
+            
+            <p>With these strategies in your arsenal, you'll be well-equipped to find the best flight deals and make your travel dreams more affordable!</p>
+        `
+    },
+
 ];
 
 // Testimonials
@@ -309,10 +450,10 @@ export const testimonials = [
 
 // Navigation Links
 export const navLinks = [
-    { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Global Presence", href: "#destinations" },
-    { name: "Careers", href: "#careers" },
+    { name: "About", href: "#about" },
+    { name: "Careers", href: "/careers" },
     { name: "Contact", href: "#contact" }
 ];
 
@@ -327,7 +468,7 @@ export const languages = [
 // KSA Navigation Links
 export const ksaNavLinks = [
     { name: "Home", href: "/ksa" },
-    { name: "Global Holidays", href: "/ksa/globalPackages" },
+    { name: "Global Packages", href: "/ksa/globalPackages" },
     { name: "Visit Saudi", href: "/ksa/visit-saudi" },
     { name: "Services", href: "#services" },
     { name: "Contact Us", href: "#contact" }
@@ -377,4 +518,136 @@ export const ksaServices = [
 export const ksaContactOptions = [
     { id: "visit-saudi", label: "I want to Visit Saudi" },
     { id: "global-holiday", label: "I want a Global Holiday Package" }
+];
+
+// Job Positions
+export const jobPositions = [
+    {
+        id: 1,
+        title: "Travel Consultant",
+        department: "Sales",
+        location: "Riyadh, Saudi Arabia",
+        type: "Full-time",
+        experience: "2-4 years",
+        status: "open",
+        postedDate: "November 20, 2024",
+        description: "We are seeking an experienced Travel Consultant to join our dynamic team. You will be responsible for creating memorable travel experiences for our clients.",
+        responsibilities: [
+            "Consult with clients to understand their travel needs and preferences",
+            "Design customized travel itineraries and packages",
+            "Book flights, hotels, and other travel services",
+            "Provide excellent customer service and support",
+            "Stay updated on travel trends and destinations"
+        ],
+        requirements: [
+            "2-4 years of experience in travel industry",
+            "Excellent communication and interpersonal skills",
+            "Strong knowledge of global destinations",
+            "Proficiency in travel booking systems",
+            "Bachelor's degree in Tourism or related field"
+        ],
+        benefits: [
+            "Competitive salary package",
+            "Health insurance",
+            "Travel discounts",
+            "Professional development opportunities",
+            "Friendly work environment"
+        ]
+    },
+    {
+        id: 2,
+        title: "Digital Marketing Specialist",
+        department: "Marketing",
+        location: "Dubai, UAE",
+        type: "Full-time",
+        experience: "3-5 years",
+        status: "open",
+        postedDate: "November 18, 2024",
+        description: "Join our marketing team to drive digital campaigns and enhance our online presence across multiple platforms.",
+        responsibilities: [
+            "Develop and execute digital marketing strategies",
+            "Manage social media platforms and content",
+            "Analyze campaign performance and optimize ROI",
+            "Create engaging content for various channels",
+            "Collaborate with design and content teams"
+        ],
+        requirements: [
+            "3-5 years of digital marketing experience",
+            "Proven track record in social media marketing",
+            "Strong analytical and creative skills",
+            "Experience with Google Analytics and SEO",
+            "Excellent written and verbal communication"
+        ],
+        benefits: [
+            "Competitive salary",
+            "Performance bonuses",
+            "Health and life insurance",
+            "Flexible working hours",
+            "Career growth opportunities"
+        ]
+    },
+    {
+        id: 3,
+        title: "Tour Operations Manager",
+        department: "Operations",
+        location: "Jeddah, Saudi Arabia",
+        type: "Full-time",
+        experience: "5+ years",
+        status: "open",
+        postedDate: "November 15, 2024",
+        description: "Lead our tour operations team to deliver exceptional travel experiences and manage day-to-day operations.",
+        responsibilities: [
+            "Oversee tour operations and logistics",
+            "Manage relationships with suppliers and partners",
+            "Ensure quality standards are met",
+            "Train and supervise operations staff",
+            "Handle customer escalations and issues"
+        ],
+        requirements: [
+            "5+ years in tour operations management",
+            "Strong leadership and team management skills",
+            "Excellent problem-solving abilities",
+            "Knowledge of tourism industry regulations",
+            "Fluency in English and Arabic"
+        ],
+        benefits: [
+            "Executive compensation package",
+            "Annual performance bonus",
+            "Comprehensive health coverage",
+            "Paid vacation and travel benefits",
+            "Leadership development programs"
+        ]
+    },
+    {
+        id: 4,
+        title: "Customer Service Representative",
+        department: "Customer Support",
+        location: "Riyadh, Saudi Arabia",
+        type: "Full-time",
+        experience: "1-2 years",
+        status: "closed",
+        postedDate: "October 25, 2024",
+        description: "Provide exceptional customer service and support to our valued clients.",
+        responsibilities: [
+            "Handle customer inquiries via phone, email, and chat",
+            "Resolve customer issues and complaints",
+            "Process bookings and reservations",
+            "Maintain customer records and documentation",
+            "Provide product and service information"
+        ],
+        requirements: [
+            "1-2 years of customer service experience",
+            "Excellent communication skills",
+            "Proficiency in English and Arabic",
+            "Computer literacy",
+            "Problem-solving mindset"
+        ],
+        benefits: [
+            "Competitive salary",
+            "Health insurance",
+            "Training and development",
+            "Employee discounts",
+            "Supportive team environment"
+        ]
+    }
 ];

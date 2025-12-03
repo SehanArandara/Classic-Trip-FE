@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import KSAPageLayout from '../components/ksa/KSAPageLayout';
 import SubPageHero from '../components/ksa/SubPageHero';
 import KSAServices from '../components/ksa/KSAServices';
 import { packages } from '../data/data';
 import { MapPin, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import TripPlannerWidget from '../components/common/TripPlannerWidget';
 
 const VisitSaudi = () => {
-    const saudiPackages = packages.filter(pkg => pkg.type === 'visit-saudi');
+    const saudiPackages = packages.filter(pkg => pkg.subType === 'Visit Saudi');
 
     const scrollToPackages = () => {
         const element = document.getElementById('packages-grid');
@@ -19,8 +20,8 @@ const VisitSaudi = () => {
     const Hero = (
         <SubPageHero
             title={<>Visit <span className="text-primary">Saudi</span></>}
-            subtitle="Discover the rich heritage, stunning landscapes, and modern marvels of the Kingdom. Experience Saudi Arabia like never before."
-            image="https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=1920&q=80"
+            subtitle="Discover the Kingdom's rich heritage, stunning landscapes, and modern marvels. From ancient Al Ula to the vibrant streets of Riyadh."
+            image="https://images.unsplash.com/photo-1591608971362-f08b2a75731a?w=1920&q=80"
             onExploreClick={scrollToPackages}
         />
     );
@@ -29,9 +30,9 @@ const VisitSaudi = () => {
         <div id="packages-grid">
             <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                    Explore <span className="text-primary">The Kingdom</span>
+                    Explore <span className="text-primary">Saudi Arabia</span>
                 </h2>
-                <p className="text-gray-600">Unforgettable experiences in Saudi Arabia</p>
+                <p className="text-gray-600">Curated experiences across the Kingdom</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {saudiPackages.map((pkg) => (
@@ -84,12 +85,19 @@ const VisitSaudi = () => {
     );
 
     return (
-        <KSAPageLayout
-            pageName="Visit Saudi"
-            hero={Hero}
-            packages={PackagesGrid}
-            services={<KSAServices />}
-        />
+        <>
+            <KSAPageLayout
+                pageName="Visit Saudi"
+                breadcrumbPath={[
+                    { label: 'KSA', href: '/ksa' },
+                    { label: 'Visit Saudi', isActive: true }
+                ]}
+                hero={Hero}
+                packages={PackagesGrid}
+                services={<KSAServices />}
+            />
+            <TripPlannerWidget pageType="saudi" />
+        </>
     );
 };
 

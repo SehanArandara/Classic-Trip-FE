@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, Hotel, Plane, Car, Map, Shield } from 'lucide-react';
+import { FileText, Hotel, Plane, Car, Shield, Users, Coffee, Ship, Train, Briefcase, AlertTriangle, Bell } from 'lucide-react';
 import ServiceCard from '../common/ServiceCard';
 import { services } from '../../data/data';
 
@@ -8,8 +8,14 @@ const iconMap = {
     Hotel,
     Plane,
     Car,
-    Map,
-    Shield
+    Shield,
+    Users,
+    Coffee,
+    Ship,
+    Train,
+    Briefcase,
+    AlertTriangle,
+    Bell
 };
 
 const Services = () => {
