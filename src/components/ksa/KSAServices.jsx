@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, Hotel, Car, Shield, Briefcase } from 'lucide-react';
+import { FileText, Hotel, Car, Shield, Briefcase, Landmark, HelpCircle } from 'lucide-react';
 import ServiceCard from '../common/ServiceCard';
 import { ksaServices } from '../../data/data';
 
@@ -30,7 +30,8 @@ const iconMap = {
     Hotel,
     Car,
     Shield,
-    Briefcase
+    Briefcase,
+    Landmark
 };
 
 const KSAServices = () => {
@@ -51,7 +52,7 @@ const KSAServices = () => {
                 {/* Services Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {ksaServices.map((service) => {
-                        const Icon = iconMap[service.icon];
+                        const Icon = iconMap[service.icon] || HelpCircle;
                         return (
                             <ServiceCard
                                 key={service.id}

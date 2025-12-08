@@ -9,6 +9,11 @@ import BlogDetail from './pages/BlogDetail';
 import BlogList from './pages/BlogList';
 import Careers from './pages/Careers';
 import CareerDetail from './pages/CareerDetail';
+import Services from './pages/Services';
+import KSAServicesPage from './pages/KSAServicesPage';
+import GlobalPackagesServices from './pages/GlobalPackagesServices';
+import VisitSaudiServices from './pages/VisitSaudiServices';
+import CorporateMicePage from './pages/CorporateMicePage';
 
 function App() {
     return (
@@ -23,6 +28,11 @@ function App() {
                 <Route path="/blog/:id" element={<BlogDetail />} />
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/careers/:id" element={<CareerDetail />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/ksa/services" element={<KSAServicesPage />} />
+                <Route path="/ksa/globalPackages/services" element={<GlobalPackagesServices />} />
+                <Route path="/ksa/visit-saudi/services" element={<VisitSaudiServices />} />
+                <Route path="/ksa/globalPackages/corporate-mice" element={<CorporateMicePage />} />
             </Routes>
         </BrowserRouter>
     );

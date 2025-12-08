@@ -1,10 +1,11 @@
-import React from 'react';
-import { MapPin, Clock, ArrowRight } from 'lucide-react';
+import React, { useRef } from 'react';
+import { MapPin, Clock, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { packages } from '../../data/data';
 import { useNavigate } from 'react-router-dom';
 
 const FeaturedTrips = () => {
     const navigate = useNavigate();
+    const scrollContainerRef = useRef(null);
 
     // Filter featured packages from all types
     const featuredPackages = packages.filter(pkg => pkg.isFeatured);
@@ -14,29 +15,64 @@ const FeaturedTrips = () => {
         navigate(`/package/${pkg.id}`);
     };
 
+    const scroll = (direction) => {
+        const container = scrollContainerRef.current;
+        if (container) {
+            const scrollAmount = 400;
+            container.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
         <section className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                        Featured Travel <span className="text-primary">Experiences</span>
-                    </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Handpicked packages designed to give you the best of every destination.
-                        From luxury escapes to cultural journeys, find your perfect adventure.
-                    </p>
+                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                    <div className="max-w-2xl">
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                            Featured Travel <span className="text-primary">Experiences</span>
+                        </h2>
+                        <p className="text-lg text-gray-600">
+                            Handpicked packages designed to give you the best of every destination.
+                            From luxury escapes to cultural journeys, find your perfect adventure.
+                        </p>
+                    </div>
+
+                    <div className="flex items-center space-x-3">
+                        {/* Navigation Arrows */}
+                        <button
+                            onClick={() => scroll('left')}
+                            className="p-2 rounded-full bg-white border border-gray-300 hover:bg-primary hover:text-white hover:border-primary transition-all"
+                            aria-label="Scroll left"
+                        >
+                            <ChevronLeft size={20} />
+                        </button>
+                        <button
+                            onClick={() => scroll('right')}
+                            className="p-2 rounded-full bg-white border border-gray-300 hover:bg-primary hover:text-white hover:border-primary transition-all"
+                            aria-label="Scroll right"
+                        >
+                            <ChevronRight size={20} />
+                        </button>
+                    </div>
                 </div>
 
-                {/* Packages Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Packages Slider */}
+                <div
+                    ref={scrollContainerRef}
+                    className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth pb-4"
+                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
                     {featuredPackages.map((pkg) => (
                         <div
                             key={pkg.id}
-                            className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-hover transition-all duration-300 group cursor-pointer"
+                            className="flex-shrink-0 w-80 bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-hover transition-all duration-300 group cursor-pointer"
                         >
                             {/* Image */}
-                            <div className="relative h-64 overflow-hidden">
+                            <div className="relative h-56 overflow-hidden">
                                 <img
                                     src={pkg.image}
                                     alt={pkg.title}
@@ -96,6 +132,11 @@ const FeaturedTrips = () => {
                     ))}
                 </div>
             </div>
+            <style>{`
+                .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                }
+            `}</style>
         </section>
     );
 };

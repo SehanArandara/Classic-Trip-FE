@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/home/Navbar';
+import KSANavbar from '../components/ksa/KSANavbar';
 import Breadcrumb from '../components/common/Breadcrumb';
 import KSAHero from '../components/ksa/KSAHero';
 import PackageSlider from '../components/ksa/PackageSlider';
@@ -7,7 +7,7 @@ import KSAServices from '../components/ksa/KSAServices';
 import Testimonials from '../components/common/Testimonials';
 import KSAContact from '../components/ksa/KSAContact';
 import Footer from '../components/common/Footer';
-import { packages, ksaNavLinks } from '../data/data';
+import { packages } from '../data/data';
 
 const KSALanding = () => {
     // Filter packages for sliders
@@ -15,9 +15,9 @@ const KSALanding = () => {
     const saudiPackages = packages.filter(pkg => pkg.subType === 'Visit Saudi');
 
     return (
-        <div className="KSALanding">
-            <Navbar links={ksaNavLinks} />
-            <Breadcrumb path={[{ label: 'KSA', isActive: true }]} theme="dark" />
+        <div className="KSALanding pt-32">
+            <KSANavbar />
+            <Breadcrumb path={[{ label: 'KSA', isActive: true }]} theme="dark" className="!top-36" />
             <KSAHero />
 
             {/* Global Holidays Section */}

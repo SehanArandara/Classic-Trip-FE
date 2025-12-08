@@ -22,8 +22,16 @@ export const companyInfo = {
 
 // Destinations
 export const destinations = [
-    { id: 1, name: "Classic Saudi", link: "/ksa", country: "Saudi Arabia" },
-    { id: 2, name: "Classic Dubai", link: "/dubai", country: "UAE" },
+    { id: 1, name: "Classic Saudi", link: "/ksa", country: "Saudi Arabia", image: "https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=800&q=80" },
+    { id: 2, name: "Classic Dubai", link: "/dubai", country: "UAE", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80" },
+    { id: 3, name: "Classic UK", link: "/uk", country: "United Kingdom", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80" },
+    { id: 4, name: "Classic France", link: "/france", country: "France", image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80" },
+    { id: 5, name: "Classic Switzerland", link: "/switzerland", country: "Switzerland", image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80" },
+    { id: 6, name: "Classic Indonesia", link: "/indonesia", country: "Indonesia", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80" },
+    // { id: 7, name: "Classic Maldives", link: "/maldives", country: "Maldives", image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80" },
+    // { id: 8, name: "Classic Turkey", link: "/turkey", country: "Turkey", image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80" },
+    // { id: 9, name: "Classic Egypt", link: "/egypt", country: "Egypt", image: "https://images.unsplash.com/photo-1539650116455-8efdb4f0d55e?w=800&q=80" },
+    // { id: 10, name: "Classic Malaysia", link: "/malaysia", country: "Malaysia", image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80" }
 ];
 
 // Services
@@ -450,7 +458,7 @@ export const testimonials = [
 
 // Navigation Links
 export const navLinks = [
-    { name: "Services", href: "#services" },
+    { name: "Services", href: "/services" },
     { name: "Global Presence", href: "#destinations" },
     { name: "About", href: "#about" },
     { name: "Careers", href: "/careers" },
@@ -470,8 +478,28 @@ export const ksaNavLinks = [
     { name: "Home", href: "/ksa" },
     { name: "Global Packages", href: "/ksa/globalPackages" },
     { name: "Visit Saudi", href: "/ksa/visit-saudi" },
-    { name: "Services", href: "#services" },
+    { name: "Services", href: "/ksa/services" },
     { name: "Contact Us", href: "#contact" }
+];
+
+// Placeholder secondary nav for Global Packages
+export const globalPackagesSecondaryNav = [
+    { name: "Overview", href: "#overview" },
+    { name: "Destinations", href: "#destinations" },
+    { name: "Special Offers", href: "#offers" },
+    { name: "Reviews", href: "#reviews" },
+    { name: "Services", href: "/ksa/globalPackages/services" },
+    { name: "MICE", href: "/ksa/globalPackages/corporate-mice#mice" },
+    { name: "Corporate", href: "/ksa/globalPackages/corporate-mice#corporate" }
+];
+
+// Placeholder secondary nav for Visit Saudi
+export const visitSaudiSecondaryNav = [
+    { name: "Overview", href: "#overview" },
+    { name: "Experiences", href: "#experiences" },
+    { name: "Destinations", href: "#destinations" },
+    { name: "Events", href: "#events" },
+    { name: "Services", href: "/ksa/visit-saudi/services" }
 ];
 
 // KSA Services
@@ -480,7 +508,7 @@ export const ksaServices = [
         id: 1,
         name: "Umrah Services",
         description: "Complete Umrah packages with premium accommodations and guidance",
-        icon: "Mosque"
+        icon: "Landmark"
     },
     {
         id: 2,

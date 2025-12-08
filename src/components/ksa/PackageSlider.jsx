@@ -144,7 +144,7 @@ const PackageSlider = ({ title, packages, sectionId, seeAllLink }) => {
                 </div>
             </div>
 
-            <style jsx>{`
+            <style>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }

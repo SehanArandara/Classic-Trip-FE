@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/home/Navbar';
+import SubPageNavbar from '../components/ksa/SubPageNavbar';
 import Footer from '../components/common/Footer';
 import { packages } from '../data/data';
 import PackageSlider from '../components/ksa/PackageSlider';
@@ -52,9 +53,25 @@ const PackageDetails = () => {
 
     breadcrumbPath.push({ label: pkg.title, isActive: true });
 
+    // Determine which navbar to show based on package subType
+    const renderNavbar = () => {
+        if (pkg.subType === 'Global Packages') {
+            return <SubPageNavbar pageType="global" />;
+        } else if (pkg.subType === 'Visit Saudi') {
+            return <SubPageNavbar pageType="visit-saudi" />;
+        } else {
+            return <Navbar />;
+        }
+    };
+
+    // Add padding-top for SubPageNavbar (fixed position)
+    const containerClass = (pkg.subType === 'Global Packages' || pkg.subType === 'Visit Saudi')
+        ? "bg-white min-h-screen pt-32"
+        : "bg-white min-h-screen";
+
     return (
-        <div className="bg-white min-h-screen">
-            <Navbar />
+        <div className={containerClass}>
+            {renderNavbar()}
 
             {/* Hero Section */}
             <div className="relative h-[60vh] w-full">

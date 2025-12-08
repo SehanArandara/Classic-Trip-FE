@@ -3,7 +3,7 @@ import { Menu, X, Globe, ChevronDown, MapPin } from 'lucide-react';
 import { companyInfo, navLinks, languages, destinations } from '../../data/data';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-const Navbar = ({ links }) => {
+const Navbar = ({ links, isStatic = false, customClass = '' }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
@@ -57,15 +57,15 @@ const Navbar = ({ links }) => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
-                }`}
+            className={`${isStatic ? 'relative w-full' : 'fixed top-0 left-0 right-0'} z-50 transition-all duration-300 ${!isStatic && isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+                } ${customClass}`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
                     <div className="flex items-center">
                         <Link to="/" className="flex items-center space-x-2">
-                            <div className={`text-2xl font-bold transition-colors ${isScrolled ? 'text-primary' : 'text-white'
+                            <div className={`text-2xl font-bold transition-colors ${isScrolled || isStatic ? 'text-primary' : 'text-white'
                                 }`}>
                                 {companyInfo.name}
                             </div>
@@ -85,7 +85,7 @@ const Navbar = ({ links }) => {
                                         onMouseLeave={() => setIsGlobalDropdownOpen(false)}
                                     >
                                         <button
-                                            className={`font-medium transition-colors hover:text-primary flex items-center space-x-1 py-2 ${isScrolled ? 'text-gray-700' : 'text-white'
+                                            className={`font-medium transition-colors hover:text-primary flex items-center space-x-1 py-2 ${isScrolled || isStatic ? 'text-gray-700' : 'text-white'
                                                 }`}
                                         >
                                             <span>{link.name}</span>
@@ -126,7 +126,7 @@ const Navbar = ({ links }) => {
                                     key={link.name}
                                     href={link.href}
                                     onClick={(e) => handleNavClick(e, link)}
-                                    className={`font-medium transition-colors hover:text-primary ${isScrolled ? 'text-gray-700' : 'text-white'
+                                    className={`font-medium transition-colors hover:text-primary ${isScrolled || isStatic ? 'text-gray-700' : 'text-white'
                                         }`}
                                 >
                                     {link.name}
@@ -138,7 +138,7 @@ const Navbar = ({ links }) => {
                         <div className="relative">
                             <button
                                 onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-                                className={`flex items-center space-x-2 px-4 py-2 rounded-lg border transition-all ${isScrolled
+                                className={`flex items-center space-x-2 px-4 py-2 rounded-lg border transition-all ${isScrolled || isStatic
                                     ? 'border-gray-300 text-gray-700 hover:border-primary'
                                     : 'border-white text-white hover:bg-white/10'
                                     }`}
@@ -170,7 +170,7 @@ const Navbar = ({ links }) => {
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className={`p-2 rounded-lg ${isScrolled ? 'text-gray-700' : 'text-white'
+                            className={`p-2 rounded-lg ${isScrolled || isStatic ? 'text-gray-700' : 'text-white'
                                 }`}
                         >
                             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

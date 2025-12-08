@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../home/Navbar';
+import KSANavbar from './KSANavbar';
 import Footer from '../common/Footer';
 import Breadcrumb from '../common/Breadcrumb';
 import KSAContact from './KSAContact';
@@ -8,14 +8,14 @@ import Blog from '../home/Blog';
 
 import { ksaNavLinks } from '../../data/data';
 
-const KSAPageLayout = ({ pageName, breadcrumbPath, hero, packages, services }) => {
+const KSAPageLayout = ({ pageName, breadcrumbPath, hero, packages, services, navbar }) => {
     return (
-        <div className="bg-gray-50 min-h-screen">
-            {/* Header: Main Logo (in Navbar) */}
-            <Navbar links={ksaNavLinks} />
+        <div className="bg-gray-50 min-h-screen pt-32">
+            {/* Header: Custom Navbar */}
+            {navbar}
 
             {/* Breadcrumbs */}
-            <Breadcrumb path={breadcrumbPath} theme="dark" />
+            <Breadcrumb path={breadcrumbPath} theme="dark" className="!top-36" />
 
             {/* Hero */}
             {hero}
