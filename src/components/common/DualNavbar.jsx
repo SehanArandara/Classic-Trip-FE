@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const DualNavbar = ({ mainNav, secondaryNav }) => {
     const [isScrolled, setIsScrolled] = useState(false);
-
+    //imjdkmdkmkj
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
