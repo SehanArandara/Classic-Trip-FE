@@ -3,10 +3,117 @@ import KSAPageLayout from '../components/ksa/KSAPageLayout';
 import SubPageHero from '../components/ksa/SubPageHero';
 import KSAServices from '../components/ksa/KSAServices';
 import { packages } from '../data/data';
-import { MapPin, Clock, ArrowRight } from 'lucide-react';
+import { MapPin, Clock, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import StickyTripPlanner from '../components/common/StickyTripPlanner';
 import SubPageNavbar from '../components/ksa/SubPageNavbar';
+
+const PackageSlider = ({ title, description, packages }) => {
+    const scrollRef = React.useRef(null);
+
+    const scroll = (direction) => {
+        if (scrollRef.current) {
+            const { scrollLeft, clientWidth } = scrollRef.current;
+            const scrollTo = direction === 'left'
+                ? scrollLeft - clientWidth / 1.5
+                : scrollLeft + clientWidth / 1.5;
+            scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+        }
+    };
+
+    return (
+        <div className="space-y-6">
+            {/* Header with Title and Buttons */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div className="flex-grow">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                        {title.split(' ').map((word, i) => (
+                            <span key={i} className={word === 'Saudi' || word === 'Arabia' || word === 'Beyond' || word === 'Events' ? 'text-primary' : ''}>
+                                {word}{' '}
+                            </span>
+                        ))}
+                    </h2>
+                    <p className="text-gray-600">{description}</p>
+                </div>
+
+                {/* Navigation Buttons Row */}
+                <div className="flex items-center gap-2">
+                    <button
+                        onClick={() => scroll('left')}
+                        className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all shadow-sm"
+                        aria-label="Scroll left"
+                    >
+                        <ChevronLeft size={20} />
+                    </button>
+                    <button
+                        onClick={() => scroll('right')}
+                        className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all shadow-sm"
+                        aria-label="Scroll right"
+                    >
+                        <ChevronRight size={20} />
+                    </button>
+                </div>
+            </div>
+
+            {/* Slider Container */}
+            <div className="relative">
+                {/* Scrollable Container */}
+                <div
+                    ref={scrollRef}
+                    className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x"
+                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
+                    {packages.map((pkg) => (
+                        <div
+                            key={pkg.id}
+                            className="flex-shrink-0 w-[280px] md:w-[320px] bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 group flex flex-col h-full snap-start"
+                        >
+                            <div className="relative h-48 overflow-hidden">
+                                <img
+                                    src={pkg.image}
+                                    alt={pkg.title}
+                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                />
+                                <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1.5 rounded-full font-bold shadow-lg text-xs">
+                                    {pkg.price}
+                                </div>
+                            </div>
+
+                            <div className="p-5 flex flex-col flex-grow">
+                                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors line-clamp-1">
+                                    {pkg.title}
+                                </h3>
+
+                                <div className="flex items-center text-gray-500 mb-2 text-xs">
+                                    <MapPin size={14} className="mr-2" />
+                                    <span>{pkg.destination}</span>
+                                </div>
+
+                                <div className="flex items-center text-gray-500 mb-4 text-xs">
+                                    <Clock size={14} className="mr-2" />
+                                    <span>{pkg.duration}</span>
+                                </div>
+
+                                <p className="text-gray-600 mb-4 line-clamp-2 text-sm flex-grow">
+                                    {pkg.description}
+                                </p>
+
+                                <Link
+                                    to={`/package/${pkg.id}`}
+                                    className="w-full flex items-center justify-center space-x-2 bg-gray-900 hover:bg-primary text-white font-semibold py-2.5 rounded-lg transition-colors mt-auto text-sm"
+                                >
+                                    <span>View Details</span>
+                                    <ArrowRight size={16} />
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <style>{`.scrollbar-hide::-webkit-scrollbar { display: none; }`}</style>
+        </div>
+    );
+};
 
 const VisitSaudi = () => {
     const saudiPackages = packages.filter(pkg => pkg.subType === 'Visit Saudi');
@@ -27,63 +134,37 @@ const VisitSaudi = () => {
         />
     );
 
+    const sections = [
+        {
+            title: "Discover Saudi Arabia",
+            description: "Experience diverse landscapes, rich culture, and unforgettable moments in Saudi Arabia.",
+            packages: saudiPackages.filter(pkg => pkg.ksaCategory === 'Discover Saudi Arabia')
+        },
+        {
+            title: "Makkah, Madinah & Beyond",
+            description: "Spiritual journeys and sacred experiences in the heart of the Kingdom.",
+            packages: saudiPackages.filter(pkg => pkg.ksaCategory === 'Makkah, Madinah & Beyond')
+        },
+        {
+            title: "Entertainment & Events",
+            description: "Discover a vibrant calendar of entertainment and events year-round",
+            packages: saudiPackages.filter(pkg => pkg.ksaCategory === 'Entertainment & Events')
+        }
+    ];
+
     const PackagesGrid = (
         <div id="packages-grid" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Main Content - Packages */}
-            <div className="lg:col-span-8">
-                <div className="mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                        Explore <span className="text-primary">Saudi Arabia</span>
-                    </h2>
-                    <p className="text-gray-600">Curated experiences across the Kingdom</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {saudiPackages.map((pkg) => (
-                        <div
-                            key={pkg.id}
-                            className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 group"
-                        >
-                            <div className="relative h-64 overflow-hidden">
-                                <img
-                                    src={pkg.image}
-                                    alt={pkg.title}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                />
-                                <div className="absolute top-4 right-4 bg-primary text-white px-4 py-2 rounded-full font-bold shadow-lg">
-                                    {pkg.price}
-                                </div>
-                            </div>
-
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
-                                    {pkg.title}
-                                </h3>
-
-                                <div className="flex items-center text-gray-600 mb-2">
-                                    <MapPin size={16} className="mr-2" />
-                                    <span className="text-sm">{pkg.destination}</span>
-                                </div>
-
-                                <div className="flex items-center text-gray-600 mb-4">
-                                    <Clock size={16} className="mr-2" />
-                                    <span className="text-sm">{pkg.duration}</span>
-                                </div>
-
-                                <p className="text-gray-600 mb-4 line-clamp-2 text-sm">
-                                    {pkg.description}
-                                </p>
-
-                                <Link
-                                    to={`/package/${pkg.id}`}
-                                    className="w-full flex items-center justify-center space-x-2 bg-gray-900 hover:bg-primary text-white font-semibold py-3 rounded-lg transition-colors"
-                                >
-                                    <span>View Details</span>
-                                    <ArrowRight size={18} />
-                                </Link>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+            <div className="lg:col-span-8 space-y-16 overflow-hidden">
+                {sections.map((section, idx) => (
+                    <div key={idx} className="scroll-mt-24" id={section.title.toLowerCase().replace(/,/g, '').replace(/\s+/g, '-')}>
+                        <PackageSlider
+                            title={section.title}
+                            description={section.description}
+                            packages={section.packages}
+                        />
+                    </div>
+                ))}
             </div>
 
             {/* Sidebar - Sticky Form */}
@@ -104,6 +185,7 @@ const VisitSaudi = () => {
             packages={PackagesGrid}
             services={<KSAServices />}
             navbar={<SubPageNavbar pageType="saudi" />}
+            pageType="visit-saudi"
         />
     );
 };

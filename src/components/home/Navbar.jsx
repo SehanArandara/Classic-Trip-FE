@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Globe, ChevronDown, MapPin } from 'lucide-react';
 import { companyInfo, navLinks, languages, destinations } from '../../data/data';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import logo from '../../assests/logo.png';
 
 const Navbar = ({ links, isStatic = false, customClass = '' }) => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -64,11 +65,13 @@ const Navbar = ({ links, isStatic = false, customClass = '' }) => {
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
                     <div className="flex items-center">
-                        <Link to="/" className="flex items-center space-x-2">
-                            <div className={`text-2xl font-bold transition-colors ${isScrolled || isStatic ? 'text-primary' : 'text-white'
-                                }`}>
-                                {companyInfo.name}
-                            </div>
+                        <Link to="/" className="flex items-center">
+                            <img
+                                src={logo}
+                                alt={companyInfo.name}
+                                className={`h-12 w-auto object-contain transition-all duration-300 ${isScrolled || isStatic ? 'brightness-100' : 'brightness-0 invert'
+                                    }`}
+                            />
                         </Link>
                     </div>
 

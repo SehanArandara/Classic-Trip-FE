@@ -3,21 +3,15 @@ import Navbar from '../components/home/Navbar';
 import Footer from '../components/common/Footer';
 import Breadcrumb from '../components/common/Breadcrumb';
 import { services, navLinks } from '../data/data';
-import { FileText, Hotel, Plane, Car, Shield, Users, Coffee, Ship, Train, Briefcase, AlertTriangle, Bell, ArrowRight, X } from 'lucide-react';
+import { Plane, Globe, Hotel, Umbrella, Briefcase, Landmark, ArrowRight, X } from 'lucide-react';
 
 const iconMap = {
-    FileText,
-    Hotel,
     Plane,
-    Car,
-    Shield,
-    Users,
-    Coffee,
-    Ship,
-    Train,
+    Globe,
+    Hotel,
+    Umbrella,
     Briefcase,
-    AlertTriangle,
-    Bell
+    Landmark
 };
 
 const Services = () => {
@@ -31,8 +25,8 @@ const Services = () => {
         setSelectedService(null);
     };
 
-    const mainServices = services.slice(0, 9);
-    const otherServices = services.slice(9);
+    // We only have 6 services now, so we can show all in the main grid
+    const mainServices = services;
 
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -107,39 +101,6 @@ const Services = () => {
                             );
                         })}
                     </div>
-
-                    {/* Other Services Grid */}
-                    {otherServices.length > 0 && (
-                        <>
-                            <div className="text-center mb-12">
-                                <h2 className="text-2xl font-bold text-gray-900 mb-4">Additional Services</h2>
-                                <p className="text-gray-600 max-w-2xl mx-auto">More ways we can help you with your journey.</p>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {otherServices.map((service) => {
-                                    const Icon = iconMap[service.icon];
-                                    return (
-                                        <div
-                                            key={service.id}
-                                            className="bg-gray-50 rounded-xl p-6 border border-gray-100 flex items-start hover:bg-white hover:shadow-md transition-all duration-300"
-                                        >
-                                            <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mr-4 shadow-sm flex-shrink-0">
-                                                <Icon className="text-gray-600" size={24} />
-                                            </div>
-                                            <div>
-                                                <h3 className="text-lg font-bold text-gray-900 mb-2">
-                                                    {service.name}
-                                                </h3>
-                                                <p className="text-sm text-gray-600 leading-relaxed">
-                                                    {service.description}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </>
-                    )}
                 </div>
             </div>
 

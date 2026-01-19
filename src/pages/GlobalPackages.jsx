@@ -104,6 +104,7 @@ const GlobalPackages = () => {
             packages={PackagesGrid}
             services={<KSAServices />}
             navbar={<SubPageNavbar pageType="global" />}
+            pageType="global"
         />
     );
 };

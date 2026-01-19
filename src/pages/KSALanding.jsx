@@ -40,7 +40,7 @@ const KSALanding = () => {
 
             <KSAServices />
             <Testimonials />
-            <KSAContact />
+            <KSAContact pageType="home" />
             <Footer />
         </div>
     );

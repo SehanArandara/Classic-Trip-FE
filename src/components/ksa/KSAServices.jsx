@@ -1,35 +1,12 @@
-import React from 'react';
-import { FileText, Hotel, Car, Shield, Briefcase, Landmark, HelpCircle } from 'lucide-react';
+import { Plane, Globe, Hotel, Umbrella, Briefcase, Landmark, HelpCircle } from 'lucide-react';
 import ServiceCard from '../common/ServiceCard';
 import { ksaServices } from '../../data/data';
 
-// Note: Using a placeholder for Mosque icon since it's not in lucide-react
-// In production, you could use react-icons or a custom SVG
-const Mosque = ({ className, size }) => (
-    <svg
-        className={className}
-        width={size}
-        height={size}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-    >
-        <path d="M12 2L8 6h8l-4-4z" />
-        <path d="M4 10h16v12H4z" />
-        <circle cx="8" cy="16" r="1" />
-        <circle cx="16" cy="16" r="1" />
-    </svg>
-);
-
 const iconMap = {
-    Mosque,
-    FileText,
+    Plane,
+    Globe,
     Hotel,
-    Car,
-    Shield,
+    Umbrella,
     Briefcase,
     Landmark
 };

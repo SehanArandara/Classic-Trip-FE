@@ -1,8 +1,28 @@
 import React, { useState } from 'react';
-import { Send, Mail, User, MessageSquare, Phone } from 'lucide-react';
+import { Send, Mail, User, MessageSquare, Phone, MapPin } from 'lucide-react';
 import { ksaContactOptions } from '../../data/data';
 
-const KSAContact = () => {
+const KSAContact = ({ pageType = 'home' }) => {
+    const contactInfo = {
+        'global': {
+            phone: '+966 56 654 9488',
+            email: 'holiday@classictripksa.com',
+            address: 'Building No. 3141, Anas Ibn Malik Street\nAl Malqa District, Unit No. 8292\nRiyadh 13521 – Kingdom of Saudi Arabia'
+        },
+        'visit-saudi': {
+            phone: '+966 56 635 6488',
+            email: 'visitsaudi@classictripksa.com',
+            address: 'Building No. 3141, Anas Ibn Malik Street\nAl Malqa District, Unit No. 8292\nRiyadh 13521 – Kingdom of Saudi Arabia'
+        },
+        'home': {
+            phone: '+966 566 549 488',
+            email: 'travel@classictripksa.com',
+            address: 'Building No. 3141, Anas Ibn Malik Street\nAl Malqa District, Unit No. 8292\nRiyadh 13521 – Kingdom of Saudi Arabia'
+        }
+    };
+
+    const currentContact = contactInfo[pageType] || contactInfo['home'];
+
     const [formData, setFormData] = useState({
         intent: '',
         name: '',
@@ -40,34 +60,34 @@ const KSAContact = () => {
                             our expert team is here to create the perfect itinerary for you.
                         </p>
 
-                        <div className="space-y-4">
-                            <div className="flex items-center space-x-3">
-                                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
+                        <div className="space-y-6">
+                            <div className="flex items-start space-x-3">
+                                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
                                     <Phone className="text-primary" size={24} />
                                 </div>
                                 <div>
-                                    <div className="font-semibold">24/7 Support</div>
-                                    <div className="text-sm text-gray-400">+966 11 234 5678</div>
+                                    <div className="font-semibold">Call Us</div>
+                                    <div className="text-sm text-gray-400">{currentContact.phone}</div>
                                 </div>
                             </div>
 
-                            <div className="flex items-center space-x-3">
-                                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
+                            <div className="flex items-start space-x-3">
+                                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
                                     <Mail className="text-primary" size={24} />
                                 </div>
                                 <div>
                                     <div className="font-semibold">Email Us</div>
-                                    <div className="text-sm text-gray-400">ksa@classictrip.com</div>
+                                    <div className="text-sm text-gray-400">{currentContact.email}</div>
                                 </div>
                             </div>
 
-                            <div className="flex items-center space-x-3">
-                                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                                    <Send className="text-primary" size={24} />
+                            <div className="flex items-start space-x-3">
+                                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <MapPin className="text-primary" size={24} />
                                 </div>
                                 <div>
-                                    <div className="font-semibold">Quick Response</div>
-                                    <div className="text-sm text-gray-400">Within 2 hours</div>
+                                    <div className="font-semibold">Visit Us</div>
+                                    <div className="text-sm text-gray-400 max-w-sm whitespace-pre-line">{currentContact.address}</div>
                                 </div>
                             </div>
                         </div>

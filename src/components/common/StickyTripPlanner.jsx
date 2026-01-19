@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { Send, Calendar, Users, MapPin, DollarSign, Sparkles, CheckCircle } from 'lucide-react';
+import { Send, Calendar, MapPin, DollarSign, Sparkles, CheckCircle, Clock, Globe, Phone, User } from 'lucide-react';
 
 const StickyTripPlanner = ({ pageType = 'global' }) => {
     const [formData, setFormData] = useState({
         destination: '',
         travelDates: '',
-        travelers: '1',
+        numDays: '',
         budget: '',
         interests: [],
         name: '',
-        contact: ''
+        contact: '',
+        nationality: ''
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -50,7 +51,19 @@ const StickyTripPlanner = ({ pageType = 'global' }) => {
                     Our travel experts will craft your perfect {pageType === 'global' ? 'global' : 'Saudi'} itinerary and contact you shortly.
                 </p>
                 <button
-                    onClick={() => { setIsSubmitted(false); setFormData({ ...formData, destination: '', interests: [] }); }}
+                    onClick={() => {
+                        setIsSubmitted(false);
+                        setFormData({
+                            destination: '',
+                            travelDates: '',
+                            numDays: '',
+                            budget: '',
+                            interests: [],
+                            name: '',
+                            contact: '',
+                            nationality: ''
+                        });
+                    }}
                     className="text-primary font-semibold hover:underline"
                 >
                     Plan another trip
@@ -90,44 +103,47 @@ const StickyTripPlanner = ({ pageType = 'global' }) => {
                     </div>
                 </div>
 
-                {/* Travel Dates */}
-                <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Travel Dates</label>
-                    <div className="relative">
-                        <Calendar size={18} className="absolute left-3 top-3 text-gray-400" />
-                        <input
-                            type="date"
-                            required
-                            value={formData.travelDates}
-                            onChange={(e) => handleInputChange('travelDates', e.target.value)}
-                            className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
-                        />
+                <div className="grid grid-cols-2 gap-4">
+                    {/* Travel Dates */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Travel Dates</label>
+                        <div className="relative">
+                            <Calendar size={18} className="absolute left-3 top-3 text-gray-400" />
+                            <input
+                                type="date"
+                                required
+                                value={formData.travelDates}
+                                onChange={(e) => handleInputChange('travelDates', e.target.value)}
+                                className="w-full pl-10 pr-2 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm"
+                            />
+                        </div>
+                    </div>
+                    {/* Number of Days */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">No. of Days</label>
+                        <div className="relative">
+                            <Clock size={18} className="absolute left-3 top-3 text-gray-400" />
+                            <input
+                                type="number"
+                                min="1"
+                                required
+                                placeholder="Days"
+                                value={formData.numDays}
+                                onChange={(e) => handleInputChange('numDays', e.target.value)}
+                                className="w-full pl-10 pr-2 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                {/* Travelers & Budget */}
                 <div className="grid grid-cols-2 gap-4">
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Travelers</label>
-                        <div className="relative">
-                            <Users size={18} className="absolute left-3 top-3 text-gray-400" />
-                            <select
-                                value={formData.travelers}
-                                onChange={(e) => handleInputChange('travelers', e.target.value)}
-                                className="w-full pl-10 pr-2 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none appearance-none bg-white"
-                            >
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3-5</option>
-                                <option>6+</option>
-                            </select>
-                        </div>
-                    </div>
+                    {/* Budget */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Budget</label>
                         <div className="relative">
                             <DollarSign size={18} className="absolute left-3 top-3 text-gray-400" />
                             <select
+                                required
                                 value={formData.budget}
                                 onChange={(e) => handleInputChange('budget', e.target.value)}
                                 className="w-full pl-10 pr-2 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none appearance-none bg-white"
@@ -135,6 +151,21 @@ const StickyTripPlanner = ({ pageType = 'global' }) => {
                                 <option value="">Select</option>
                                 {budgetOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
                             </select>
+                        </div>
+                    </div>
+                    {/* Nationality */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Nationality</label>
+                        <div className="relative">
+                            <Globe size={18} className="absolute left-3 top-3 text-gray-400" />
+                            <input
+                                type="text"
+                                required
+                                placeholder="e.g. Saudi"
+                                value={formData.nationality}
+                                onChange={(e) => handleInputChange('nationality', e.target.value)}
+                                className="w-full pl-10 pr-2 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                            />
                         </div>
                     </div>
                 </div>
@@ -149,8 +180,8 @@ const StickyTripPlanner = ({ pageType = 'global' }) => {
                                 type="button"
                                 onClick={() => handleInterestToggle(interest)}
                                 className={`text-xs px-3 py-1.5 rounded-full border transition-all ${formData.interests.includes(interest)
-                                        ? 'bg-primary text-white border-primary'
-                                        : 'bg-gray-50 text-gray-600 border-gray-200 hover:border-primary/50'
+                                    ? 'bg-primary text-white border-primary'
+                                    : 'bg-gray-50 text-gray-600 border-gray-200 hover:border-primary/50'
                                     }`}
                             >
                                 {interest}
@@ -162,33 +193,39 @@ const StickyTripPlanner = ({ pageType = 'global' }) => {
                 {/* Name */}
                 <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                    <input
-                        type="text"
-                        required
-                        placeholder="John Doe"
-                        value={formData.name}
-                        onChange={(e) => handleInputChange('name', e.target.value)}
-                        className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
-                    />
+                    <div className="relative">
+                        <User size={18} className="absolute left-3 top-3 text-gray-400" />
+                        <input
+                            type="text"
+                            required
+                            placeholder="John Doe"
+                            value={formData.name}
+                            onChange={(e) => handleInputChange('name', e.target.value)}
+                            className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                        />
+                    </div>
                 </div>
 
                 {/* Contact */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Phone / Email</label>
-                    <input
-                        type="text"
-                        required
-                        placeholder="+966... or email@example.com"
-                        value={formData.contact}
-                        onChange={(e) => handleInputChange('contact', e.target.value)}
-                        className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
-                    />
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Your Contact Number</label>
+                    <div className="relative">
+                        <Phone size={18} className="absolute left-3 top-3 text-gray-400" />
+                        <input
+                            type="tel"
+                            required
+                            placeholder="e.g. +966 50 123 4567"
+                            value={formData.contact}
+                            onChange={(e) => handleInputChange('contact', e.target.value)}
+                            className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                        />
+                    </div>
                 </div>
 
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    className="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-red-700 transition-colors shadow-lg shadow-primary/30 flex items-center justify-center gap-2 mt-4"
+                    className="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-opacity-90 transition-all shadow-lg shadow-primary/30 flex items-center justify-center gap-2 mt-4"
                 >
                     Submit Request <Send size={16} />
                 </button>

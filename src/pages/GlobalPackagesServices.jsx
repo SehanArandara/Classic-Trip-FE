@@ -4,7 +4,7 @@ import Footer from '../components/common/Footer';
 import Breadcrumb from '../components/common/Breadcrumb';
 import { ksaServices } from '../data/data';
 import {
-    FileText, Hotel, Car, Shield, Briefcase, Landmark,
+    Plane, Globe, Hotel, Umbrella, Briefcase, Landmark,
     ArrowRight, X, HelpCircle
 } from 'lucide-react';
 
@@ -13,10 +13,10 @@ const GlobalPackagesServices = () => {
 
     // Define iconMap explicitly
     const iconMap = {
-        FileText,
+        Plane,
+        Globe,
         Hotel,
-        Car,
-        Shield,
+        Umbrella,
         Briefcase,
         Landmark
     };

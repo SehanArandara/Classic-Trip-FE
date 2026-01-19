@@ -1,21 +1,14 @@
-import React from 'react';
-import { FileText, Hotel, Plane, Car, Shield, Users, Coffee, Ship, Train, Briefcase, AlertTriangle, Bell } from 'lucide-react';
+import { Plane, Globe, Hotel, Umbrella, Briefcase, Landmark } from 'lucide-react';
 import ServiceCard from '../common/ServiceCard';
 import { services } from '../../data/data';
 
 const iconMap = {
-    FileText,
-    Hotel,
     Plane,
-    Car,
-    Shield,
-    Users,
-    Coffee,
-    Ship,
-    Train,
+    Globe,
+    Hotel,
+    Umbrella,
     Briefcase,
-    AlertTriangle,
-    Bell
+    Landmark
 };
 
 const Services = () => {

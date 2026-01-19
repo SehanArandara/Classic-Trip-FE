@@ -38,75 +38,39 @@ export const destinations = [
 export const services = [
     {
         id: 1,
-        name: "Airline Tickets",
-        description: "Best deals on domestic and international flights",
+        name: "Air ticketing",
+        description: "Seamless flight bookings to destinations worldwide",
         icon: "Plane"
     },
     {
         id: 2,
-        name: "Worldwide Hotel Reservations",
-        description: "Luxury and budget accommodations worldwide",
-        icon: "Hotel"
+        name: "Global Visa assistance",
+        description: "Expert support for visa applications and travel documentation",
+        icon: "Globe"
     },
     {
         id: 3,
-        name: "Travel Insurance",
-        description: "Comprehensive coverage for peace of mind",
-        icon: "Shield"
+        name: "Hotel Booking",
+        description: "Premium accommodations tailored to your budget and needs",
+        icon: "Hotel"
     },
     {
         id: 4,
-        name: "Meet and Assist Services",
-        description: "Professional airport assistance and fast-track services",
-        icon: "Users"
+        name: "Leisure Packages",
+        description: "Curated holiday experiences for unforgettable memories",
+        icon: "Umbrella"
     },
     {
         id: 5,
-        name: "Worldwide Airport Transfers",
-        description: "Reliable pickup and drop-off services globally",
-        icon: "Car"
-    },
-    {
-        id: 6,
-        name: "Worldwide Lounge Access",
-        description: "Premium airport lounge access for your comfort",
-        icon: "Coffee"
-    },
-    {
-        id: 7,
-        name: "Outbound Holiday Packages",
-        description: "Curated cruise and holiday packages worldwide",
-        icon: "Ship"
-    },
-    {
-        id: 8,
-        name: "Coach Tours and Rail Tickets",
-        description: "Scenic rail journeys and guided coach tours",
-        icon: "Train"
-    },
-    {
-        id: 9,
-        name: "MICE Travel Management",
-        description: "Meetings, Incentives, Conferences, and Exhibitions",
+        name: "MICE/ Corporate Travel",
+        description: "Professional management for business meetings and events",
         icon: "Briefcase"
     },
     {
-        id: 10,
-        name: "Crisis Management",
-        description: "24/7 support and emergency travel assistance",
-        icon: "AlertTriangle"
-    },
-    {
-        id: 11,
-        name: "Travel Alerts",
-        description: "Real-time updates on travel regulations and safety",
-        icon: "Bell"
-    },
-    {
-        id: 12,
-        name: "Visa Services",
-        description: "Complete visa processing and documentation support",
-        icon: "FileText"
+        id: 6,
+        name: "Makkah, Madinah & beyond",
+        description: "Spiritual journeys and sacred pilgrimages to holy sites",
+        icon: "Landmark"
     }
 ];
 
@@ -220,6 +184,20 @@ export const packages = [
     },
     // Visit Saudi Packages
     {
+        id: 2,
+        title: "Makkah & Madinah Pilgrimage",
+        destination: "Saudi Arabia",
+        duration: "10 Days / 9 Nights",
+        price: "$2,499",
+        image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80",
+        description: "Sacred journey with premium accommodations and guided services",
+        highlights: ["Umrah Package", "5-Star Hotels", "24/7 Support"],
+        type: "KSA",
+        subType: "Visit Saudi",
+        ksaCategory: "Makkah, Madinah & Beyond",
+        isFeatured: true
+    },
+    {
         id: 201,
         title: "Al Ula Heritage Experience",
         destination: "Al Ula, Saudi Arabia",
@@ -230,6 +208,7 @@ export const packages = [
         highlights: ["Hegra (Madain Saleh)", "Elephant Rock", "Old Town"],
         type: "KSA",
         subType: "Visit Saudi",
+        ksaCategory: "Discover Saudi Arabia",
         isFeatured: true
     },
     {
@@ -243,6 +222,7 @@ export const packages = [
         highlights: ["Boulevard City", "Concerts", "International Cuisine"],
         type: "KSA",
         subType: "Visit Saudi",
+        ksaCategory: "Entertainment & Events",
         isFeatured: false
     },
     {
@@ -256,6 +236,7 @@ export const packages = [
         highlights: ["Historic Jeddah", "Corniche", "Red Sea Diving"],
         type: "KSA",
         subType: "Visit Saudi",
+        ksaCategory: "Discover Saudi Arabia",
         isFeatured: true
     },
     {
@@ -269,6 +250,7 @@ export const packages = [
         highlights: ["Luxury Resorts", "Scuba Diving", "Private Beaches"],
         type: "KSA",
         subType: "Visit Saudi",
+        ksaCategory: "Discover Saudi Arabia",
         isFeatured: true
     },
     {
@@ -282,6 +264,119 @@ export const packages = [
         highlights: ["Asir National Park", "Cable Car", "Traditional Villages"],
         type: "KSA",
         subType: "Visit Saudi",
+        ksaCategory: "Discover Saudi Arabia",
+        isFeatured: false
+    },
+    {
+        id: 206,
+        title: "Taif City of Roses",
+        destination: "Taif, Saudi Arabia",
+        duration: "2 Days / 1 Night",
+        price: "SAR 1,800",
+        image: "https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=800&q=80",
+        description: "Visit the summer capital of Saudi Arabia",
+        highlights: ["Rose Factories", "Shubra Palace", "Souq Okaz"],
+        type: "KSA",
+        subType: "Visit Saudi",
+        ksaCategory: "Discover Saudi Arabia",
+        isFeatured: false
+    },
+    {
+        id: 207,
+        title: "Diriyah Historic Tour",
+        destination: "Diriyah, Saudi Arabia",
+        duration: "1 Day",
+        price: "SAR 950",
+        image: "https://images.unsplash.com/photo-1627894483216-2138af692e2e?w=800&q=80",
+        description: "Explore the birthplace of the Saudi State",
+        highlights: ["At-Turaif UNESCO Site", "Bujairi Terrace", "Historic Walls"],
+        type: "KSA",
+        subType: "Visit Saudi",
+        ksaCategory: "Discover Saudi Arabia",
+        isFeatured: true
+    },
+    {
+        id: 208,
+        title: "Makkah Premium Package",
+        destination: "Makkah, Saudi Arabia",
+        duration: "5 Days / 4 Nights",
+        price: "SAR 6,200",
+        image: "https://images.unsplash.com/photo-1564769662533-4f00a89340c6?w=800&q=80",
+        description: "Luxury Umrah experience with Haram views",
+        highlights: ["5-Star Clock Tower Hotel", "Private Transfers", "Religious Guide"],
+        type: "KSA",
+        subType: "Visit Saudi",
+        ksaCategory: "Makkah, Madinah & Beyond",
+        isFeatured: true
+    },
+    {
+        id: 209,
+        title: "Madinah Spiritual Journey",
+        destination: "Madinah, Saudi Arabia",
+        duration: "4 Days / 3 Nights",
+        price: "SAR 4,800",
+        image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80",
+        description: "Peaceful stay near Prophet's Mosque",
+        highlights: ["Masjid Al Nabawi", "Quba Mosque Visit", "Uhud Mountain"],
+        type: "KSA",
+        subType: "Visit Saudi",
+        ksaCategory: "Makkah, Madinah & Beyond",
+        isFeatured: false
+    },
+    {
+        id: 210,
+        title: "Formula 1 Jeddah Corniche",
+        destination: "Jeddah, Saudi Arabia",
+        duration: "3 Days / 2 Nights",
+        price: "SAR 12,000",
+        image: "https://images.unsplash.com/photo-1542332213-9b5a5a3fab35?w=800&q=80",
+        description: "Experience the fastest street circuit in F1",
+        highlights: ["Paddock Club Access", "Concerts", "Luxury Stay"],
+        type: "KSA",
+        subType: "Visit Saudi",
+        ksaCategory: "Entertainment & Events",
+        isFeatured: true
+    },
+    {
+        id: 211,
+        title: "MDLBEAST Soundstorm",
+        destination: "Riyadh, Saudi Arabia",
+        duration: "4 Days / 3 Nights",
+        price: "SAR 5,500",
+        image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
+        description: "The loudest festival in the region",
+        highlights: ["International DJs", "VIB (Very Important Beast)", "Aftermath access"],
+        type: "KSA",
+        subType: "Visit Saudi",
+        ksaCategory: "Entertainment & Events",
+        isFeatured: true
+    },
+    {
+        id: 212,
+        title: "Al Ula Moments & Winter at Tantora",
+        destination: "Al Ula, Saudi Arabia",
+        duration: "3 Days / 2 Nights",
+        price: "SAR 7,800",
+        image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80",
+        description: "Music and arts in a historic landscape",
+        highlights: ["Maraya Concert", "Hot Air Balloon", "Desert Dining"],
+        type: "KSA",
+        subType: "Visit Saudi",
+        ksaCategory: "Entertainment & Events",
+        isFeatured: true
+    },
+    {
+        id: 213,
+        title: "Noor Riyadh Art Festival",
+        destination: "Riyadh, Saudi Arabia",
+        duration: "2 Days / 1 Night",
+        price: "SAR 2,200",
+        image: "https://plus.unsplash.com/premium_photo-1681487814165-018814e29155?w=800&q=80",
+        description: "City-wide festival of light and art",
+        highlights: ["Light Installations", "Workshops", "Guided Art Tours"],
+        type: "KSA",
+        subType: "Visit Saudi",
+        ksaCategory: "Entertainment & Events",
         isFeatured: false
     }
 ];
@@ -506,39 +601,39 @@ export const visitSaudiSecondaryNav = [
 export const ksaServices = [
     {
         id: 1,
-        name: "Umrah Services",
-        description: "Complete Umrah packages with premium accommodations and guidance",
-        icon: "Landmark"
+        name: "Air ticketing",
+        description: "Seamless flight bookings to destinations worldwide",
+        icon: "Plane"
     },
     {
         id: 2,
-        name: "GCC Visa Assistance",
-        description: "Fast-track visa processing for GCC countries",
-        icon: "FileText"
+        name: "Global Visa assistance",
+        description: "Expert support for visa applications and travel documentation",
+        icon: "Globe"
     },
     {
         id: 3,
-        name: "Corporate Travel",
-        description: "Tailored business travel solutions for companies",
-        icon: "Briefcase"
-    },
-    {
-        id: 4,
-        name: "Hotel Bookings",
-        description: "Luxury and budget accommodations across Saudi Arabia",
+        name: "Hotel Booking",
+        description: "Premium accommodations tailored to your budget and needs",
         icon: "Hotel"
     },
     {
+        id: 4,
+        name: "Leisure Packages",
+        description: "Curated holiday experiences for unforgettable memories",
+        icon: "Umbrella"
+    },
+    {
         id: 5,
-        name: "Transport Services",
-        description: "Private transfers and car rentals throughout KSA",
-        icon: "Car"
+        name: "MICE/ Corporate Travel",
+        description: "Professional management for business meetings and events",
+        icon: "Briefcase"
     },
     {
         id: 6,
-        name: "Travel Insurance",
-        description: "Comprehensive coverage for domestic and international travel",
-        icon: "Shield"
+        name: "Makkah, Madinah & beyond",
+        description: "Spiritual journeys and sacred pilgrimages to holy sites",
+        icon: "Landmark"
     }
 ];
 
