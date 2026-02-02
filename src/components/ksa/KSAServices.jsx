@@ -36,6 +36,7 @@ const KSAServices = () => {
                                 icon={Icon}
                                 name={service.name}
                                 description={service.description}
+                                points={service.points}
                             />
                         );
                     })}

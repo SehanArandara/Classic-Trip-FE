@@ -8,7 +8,17 @@ import Blog from '../home/Blog';
 
 import { ksaNavLinks } from '../../data/data';
 
-const KSAPageLayout = ({ pageName, breadcrumbPath, hero, packages, services, navbar, pageType }) => {
+const KSAPageLayout = ({
+    pageName,
+    breadcrumbPath,
+    hero,
+    packages,
+    services,
+    navbar,
+    pageType,
+    showBlog = true,
+    showTestimonials = true
+}) => {
     return (
         <div className="bg-gray-50 min-h-screen pt-32">
             {/* Header: Custom Navbar */}
@@ -29,10 +39,10 @@ const KSAPageLayout = ({ pageName, breadcrumbPath, hero, packages, services, nav
             {services}
 
             {/* Blogs */}
-            <Blog />
+            {showBlog && <Blog />}
 
             {/* Testimonials */}
-            <Testimonials />
+            {showTestimonials && <Testimonials />}
 
             {/* CTA Banner */}
             <KSAContact pageType={pageType} />

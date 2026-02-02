@@ -14,6 +14,11 @@ import KSAServicesPage from './pages/KSAServicesPage';
 import GlobalPackagesServices from './pages/GlobalPackagesServices';
 import VisitSaudiServices from './pages/VisitSaudiServices';
 import CorporateMicePage from './pages/CorporateMicePage';
+import KSADestinations from './pages/KSADestinations';
+import KSASpecialOffers from './pages/KSASpecialOffers';
+import SaudiExperiences from './pages/SaudiExperiences';
+import SaudiEvents from './pages/SaudiEvents';
+import SaudiSpiritual from './pages/SaudiSpiritual';
 
 function App() {
     return (
@@ -22,7 +27,12 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/ksa" element={<KSALanding />} />
                 <Route path="/ksa/globalPackages" element={<GlobalPackages />} />
+                <Route path="/ksa/globalPackages/destinations" element={<KSADestinations />} />
+                <Route path="/ksa/globalPackages/special-offers" element={<KSASpecialOffers />} />
                 <Route path="/ksa/visit-saudi" element={<VisitSaudi />} />
+                <Route path="/ksa/visit-saudi/experiences" element={<SaudiExperiences />} />
+                <Route path="/ksa/visit-saudi/events" element={<SaudiEvents />} />
+                <Route path="/ksa/visit-saudi/spiritual-journeys" element={<SaudiSpiritual />} />
                 <Route path="/package/:id" element={<PackageDetails />} />
                 <Route path="/blog" element={<BlogList />} />
                 <Route path="/blog/:id" element={<BlogDetail />} />

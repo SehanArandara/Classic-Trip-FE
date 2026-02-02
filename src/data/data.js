@@ -38,39 +38,45 @@ export const destinations = [
 export const services = [
     {
         id: 1,
-        name: "Air ticketing",
+        name: "Air Ticketing",
         description: "Seamless flight bookings to destinations worldwide",
-        icon: "Plane"
+        icon: "Plane",
+        points: ["Competitive Pricing", "Hassle-Free Booking", "Comprehensive Coverage"]
     },
     {
         id: 2,
-        name: "Global Visa assistance",
+        name: "Global Visa Assistance",
         description: "Expert support for visa applications and travel documentation",
-        icon: "Globe"
+        icon: "Globe",
+        points: ["Expert Guidance", "Efficient Processing", "All-Inclusive Help"]
     },
     {
         id: 3,
         name: "Hotel Booking",
         description: "Premium accommodations tailored to your budget and needs",
-        icon: "Hotel"
+        icon: "Hotel",
+        points: ["Curated Selections", "Best Value Deals", "Flexible and Reliable"]
     },
     {
         id: 4,
         name: "Leisure Packages",
         description: "Curated holiday experiences for unforgettable memories",
-        icon: "Umbrella"
+        icon: "Umbrella",
+        points: ["Customized Itineraries", "All-Inclusive Convenience", "Quality Assurance"]
     },
     {
         id: 5,
         name: "MICE/ Corporate Travel",
         description: "Professional management for business meetings and events",
-        icon: "Briefcase"
+        icon: "Briefcase",
+        points: ["End-to-End Management", "Cost-Effective Solutions", "Dedicated Expertise"]
     },
     {
         id: 6,
-        name: "Makkah, Madinah & beyond",
+        name: "Makkah, Madinah & Beyond",
         description: "Spiritual journeys and sacred pilgrimages to holy sites",
-        icon: "Landmark"
+        icon: "Landmark",
+        points: ["Spiritual Guidance", "Comfortable Arrangements", "Holistic Experience"]
     }
 ];
 
@@ -128,7 +134,8 @@ export const packages = [
         highlights: ["Jungfraujoch", "Lake Geneva", "Chocolate Factory Tour"],
         type: "KSA",
         subType: "Global Packages",
-        isFeatured: true
+        isFeatured: true,
+        isSpecialOffer: true
     },
     {
         id: 102,
@@ -156,32 +163,32 @@ export const packages = [
         subType: "Global Packages",
         isFeatured: false
     },
-    {
-        id: 104,
-        title: "Bali Tropical Paradise",
-        destination: "Indonesia",
-        duration: "8 Days / 7 Nights",
-        price: "SAR 7,500",
-        image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
-        description: "Relax in Bali's stunning beaches and cultural temples",
-        highlights: ["Ubud Rice Terraces", "Beach Resorts", "Temple Tours"],
-        type: "KSA",
-        subType: "Global Packages",
-        isFeatured: true
-    },
-    {
-        id: 105,
-        title: "Maldives Luxury Escape",
-        destination: "Maldives",
-        duration: "5 Days / 4 Nights",
-        price: "SAR 15,000",
-        image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80",
-        description: "Ultimate luxury in overwater villas",
-        highlights: ["Private Island", "Water Sports", "Spa Treatments"],
-        type: "KSA",
-        subType: "Global Packages",
-        isFeatured: true
-    },
+    // {
+    //     id: 104,
+    //     title: "Bali Tropical Paradise",
+    //     destination: "Indonesia",
+    //     duration: "8 Days / 7 Nights",
+    //     price: "SAR 7,500",
+    //     image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
+    //     description: "Relax in Bali's stunning beaches and cultural temples",
+    //     highlights: ["Ubud Rice Terraces", "Beach Resorts", "Temple Tours"],
+    //     type: "KSA",
+    //     subType: "Global Packages",
+    //     isFeatured: true
+    // },
+    // {
+    //     id: 105,
+    //     title: "Maldives Luxury Escape",
+    //     destination: "Maldives",
+    //     duration: "5 Days / 4 Nights",
+    //     price: "SAR 15,000",
+    //     image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80",
+    //     description: "Ultimate luxury in overwater villas",
+    //     highlights: ["Private Island", "Water Sports", "Spa Treatments"],
+    //     type: "KSA",
+    //     subType: "Global Packages",
+    //     isFeatured: true
+    // },
     // Visit Saudi Packages
     {
         id: 2,
@@ -377,6 +384,86 @@ export const packages = [
         type: "KSA",
         subType: "Visit Saudi",
         ksaCategory: "Entertainment & Events",
+        isFeatured: false
+    },
+    {
+        id: 301,
+        title: "Swiss Alpine Wonders",
+        destination: "Switzerland",
+        duration: "8 Days / 7 Nights",
+        price: "$3,200",
+        image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80",
+        description: "Breathtaking landscapes and luxury resorts in the heart of the Alps",
+        highlights: ["Zermatt", "Lucerne", "Alpine Train"],
+        type: "KSA",
+        subType: "Global Packages",
+        isFeatured: true
+    },
+    {
+        id: 302,
+        title: "Tokyo Discovery",
+        destination: "Tokyo, Japan",
+        duration: "6 Days / 5 Nights",
+        price: "$2,100",
+        image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80",
+        description: "Explore the neon lights and ancient temples of Tokyo",
+        highlights: ["Shibuya Crossing", "Senso-ji Temple", "Mount Fuji Day Trip"],
+        type: "KSA",
+        subType: "Global Packages",
+        isFeatured: false
+    },
+    {
+        id: 303,
+        title: "Santorini Sunset Escape",
+        destination: "Santorini, Greece",
+        duration: "5 Days / 4 Nights",
+        price: "$1,800",
+        image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80",
+        description: "Iconic blue domes and stunning sunsets in Greece",
+        highlights: ["Oia Village", "Volcanic Boat Tour", "Wine Tasting"],
+        type: "KSA",
+        subType: "Global Packages",
+        isFeatured: true,
+        isSpecialOffer: true
+    },
+    {
+        id: 304,
+        title: "Cape Town Adventure",
+        destination: "Cape Town, South Africa",
+        duration: "7 Days / 6 Nights",
+        price: "$1,500",
+        image: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=80",
+        description: "From Table Mountain to penguin colony beaches",
+        highlights: ["Table Mountain", "Cape Point", "Boulders Beach"],
+        type: "KSA",
+        subType: "Global Packages",
+        isFeatured: false
+    },
+    {
+        id: 305,
+        title: "New York City Lights",
+        destination: "New York, USA",
+        duration: "5 Days / 4 Nights",
+        price: "$2,400",
+        image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&q=80",
+        description: "The city that never sleeps - Empire State to Central Park",
+        highlights: ["Times Square", "Statue of Liberty", "Broadway Show"],
+        type: "KSA",
+        subType: "Global Packages",
+        isFeatured: true,
+        isSpecialOffer: true
+    },
+    {
+        id: 306,
+        title: "Venice Canal Journey",
+        destination: "Venice, Italy",
+        duration: "4 Days / 3 Nights",
+        price: "$1,300",
+        image: "https://images.unsplash.com/photo-1514890547357-a9ee2887ad8e?w=800&q=80",
+        description: "Romantic gondola rides and historic architecture",
+        highlights: ["St. Mark's Basilica", "Grand Canal", "Gondola Ride"],
+        type: "KSA",
+        subType: "Global Packages",
         isFeatured: false
     }
 ];
@@ -579,10 +666,10 @@ export const ksaNavLinks = [
 
 // Placeholder secondary nav for Global Packages
 export const globalPackagesSecondaryNav = [
-    { name: "Overview", href: "#overview" },
-    { name: "Destinations", href: "#destinations" },
-    { name: "Special Offers", href: "#offers" },
-    { name: "Reviews", href: "#reviews" },
+    { name: "Overview", href: "/ksa/globalPackages" },
+    { name: "Destinations", href: "/ksa/globalPackages/destinations" },
+    { name: "Special Offers", href: "/ksa/globalPackages/special-offers" },
+    // { name: "Reviews", href: "#reviews" },
     { name: "Services", href: "/ksa/globalPackages/services" },
     { name: "MICE", href: "/ksa/globalPackages/corporate-mice#mice" },
     { name: "Corporate", href: "/ksa/globalPackages/corporate-mice#corporate" }
@@ -590,10 +677,10 @@ export const globalPackagesSecondaryNav = [
 
 // Placeholder secondary nav for Visit Saudi
 export const visitSaudiSecondaryNav = [
-    { name: "Overview", href: "#overview" },
-    { name: "Experiences", href: "#experiences" },
-    { name: "Destinations", href: "#destinations" },
-    { name: "Events", href: "#events" },
+    { name: "Overview", href: "/ksa/visit-saudi" },
+    { name: "Experiences", href: "/ksa/visit-saudi/experiences" },
+    { name: "Events", href: "/ksa/visit-saudi/events" },
+    { name: "Spiritual", href: "/ksa/visit-saudi/spiritual-journeys" },
     { name: "Services", href: "/ksa/visit-saudi/services" }
 ];
 
@@ -601,39 +688,45 @@ export const visitSaudiSecondaryNav = [
 export const ksaServices = [
     {
         id: 1,
-        name: "Air ticketing",
+        name: "Air Ticketing",
         description: "Seamless flight bookings to destinations worldwide",
-        icon: "Plane"
+        icon: "Plane",
+        points: ["Competitive Pricing", "Hassle-Free Booking", "Comprehensive Coverage"]
     },
     {
         id: 2,
-        name: "Global Visa assistance",
+        name: "Global Visa Assistance",
         description: "Expert support for visa applications and travel documentation",
-        icon: "Globe"
+        icon: "Globe",
+        points: ["Expert Guidance", "Efficient Processing", "All-Inclusive Help"]
     },
     {
         id: 3,
         name: "Hotel Booking",
         description: "Premium accommodations tailored to your budget and needs",
-        icon: "Hotel"
+        icon: "Hotel",
+        points: ["Curated Selections", "Best Value Deals", "Flexible and Reliable"]
     },
     {
         id: 4,
         name: "Leisure Packages",
         description: "Curated holiday experiences for unforgettable memories",
-        icon: "Umbrella"
+        icon: "Umbrella",
+        points: ["Customized Itineraries", "All-Inclusive Convenience", "Quality Assurance"]
     },
     {
         id: 5,
         name: "MICE/ Corporate Travel",
         description: "Professional management for business meetings and events",
-        icon: "Briefcase"
+        icon: "Briefcase",
+        points: ["End-to-End Management", "Cost-Effective Solutions", "Dedicated Expertise"]
     },
     {
         id: 6,
-        name: "Makkah, Madinah & beyond",
+        name: "Makkah, Madinah & Beyond",
         description: "Spiritual journeys and sacred pilgrimages to holy sites",
-        icon: "Landmark"
+        icon: "Landmark",
+        points: ["Spiritual Guidance", "Comfortable Arrangements", "Holistic Experience"]
     }
 ];
 

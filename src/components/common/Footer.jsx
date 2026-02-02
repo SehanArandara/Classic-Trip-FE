@@ -2,8 +2,9 @@ import React from 'react';
 import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import { companyInfo, destinations } from '../../data/data';
 import logo from '../../assests/logo.png';
+import ctripLogo from '../../assests/Ctrip.png';
 
-const Footer = () => {
+const Footer = ({ logoType = 'default' }) => {
     const currentYear = new Date().getFullYear();
 
     const quickLinks = [
@@ -32,7 +33,7 @@ const Footer = () => {
                     <div>
                         <div className="mb-4">
                             <img
-                                src={logo}
+                                src={logoType === 'ctrip' ? ctripLogo : logo}
                                 alt={companyInfo.name}
                                 className="h-16 w-auto object-contain"
                             />

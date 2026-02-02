@@ -2,6 +2,7 @@ import React from 'react';
 import { ChevronRight, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { companyInfo, languages } from '../../data/data';
+import logo from '../../assests/logo.png';
 
 const GlobalHeader = () => {
     const [selectedLang, setSelectedLang] = React.useState(languages[0]);
@@ -19,8 +20,8 @@ const GlobalHeader = () => {
                 <div className="flex justify-between items-center">
                     {/* Logo and Breadcrumb */}
                     <div className="flex items-center space-x-3">
-                        <Link to="/" className="text-xl font-bold text-primary hover:text-red-700 transition-colors">
-                            {companyInfo.name}
+                        <Link to="/" className="flex items-center">
+                            <img src={logo} alt={companyInfo.name} className="h-10 w-auto object-contain" />
                         </Link>
                         <ChevronRight size={16} className="text-gray-400" />
                         <span className="text-gray-700 font-semibold">KSA</span>

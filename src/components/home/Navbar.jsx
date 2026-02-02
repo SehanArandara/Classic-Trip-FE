@@ -3,8 +3,9 @@ import { Menu, X, Globe, ChevronDown, MapPin } from 'lucide-react';
 import { companyInfo, navLinks, languages, destinations } from '../../data/data';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import logo from '../../assests/logo.png';
+import ctripLogo from '../../assests/Ctrip.png';
 
-const Navbar = ({ links, isStatic = false, customClass = '' }) => {
+const Navbar = ({ links, isStatic = false, customClass = '', logoType = 'default' }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
@@ -67,7 +68,7 @@ const Navbar = ({ links, isStatic = false, customClass = '' }) => {
                     <div className="flex items-center">
                         <Link to="/" className="flex items-center">
                             <img
-                                src={logo}
+                                src={logoType === 'ctrip' ? ctripLogo : logo}
                                 alt={companyInfo.name}
                                 className={`h-12 w-auto object-contain transition-all duration-300 ${isScrolled || isStatic ? 'brightness-100' : 'brightness-0 invert'
                                     }`}

@@ -139,20 +139,30 @@ const Services = () => {
                             </p>
 
                             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                                <h4 className="font-semibold text-gray-900 mb-3">Why Choose This Service?</h4>
-                                <ul className="space-y-2">
-                                    <li className="flex items-start text-sm text-gray-600">
-                                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 mr-2 flex-shrink-0" />
-                                        Professional and dedicated support team
-                                    </li>
-                                    <li className="flex items-start text-sm text-gray-600">
-                                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 mr-2 flex-shrink-0" />
-                                        Competitive rates and exclusive deals
-                                    </li>
-                                    <li className="flex items-start text-sm text-gray-600">
-                                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 mr-2 flex-shrink-0" />
-                                        24/7 assistance for your peace of mind
-                                    </li>
+                                <h4 className="font-semibold text-gray-900 mb-3 tracking-wide uppercase text-xs">Why Choose This Service?</h4>
+                                <ul className="space-y-3">
+                                    {(selectedService.points || []).map((point, index) => (
+                                        <li key={index} className="flex items-start text-sm text-gray-700 font-medium">
+                                            <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 mr-3 flex-shrink-0" />
+                                            {point}
+                                        </li>
+                                    ))}
+                                    {(!selectedService.points || selectedService.points.length === 0) && (
+                                        <>
+                                            <li className="flex items-start text-sm text-gray-600">
+                                                <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 mr-3 flex-shrink-0" />
+                                                Professional and dedicated support team
+                                            </li>
+                                            <li className="flex items-start text-sm text-gray-600">
+                                                <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 mr-3 flex-shrink-0" />
+                                                Competitive rates and exclusive deals
+                                            </li>
+                                            <li className="flex items-start text-sm text-gray-600">
+                                                <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 mr-3 flex-shrink-0" />
+                                                24/7 assistance for your peace of mind
+                                            </li>
+                                        </>
+                                    )}
                                 </ul>
                             </div>
 

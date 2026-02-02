@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import StickyTripPlanner from '../components/common/StickyTripPlanner';
 import SubPageNavbar from '../components/ksa/SubPageNavbar';
 
-const PackageSlider = ({ title, description, packages }) => {
+const PackageSlider = ({ title, description, packages, seeAllLink }) => {
     const scrollRef = React.useRef(null);
 
     const scroll = (direction) => {
@@ -24,43 +24,50 @@ const PackageSlider = ({ title, description, packages }) => {
     return (
         <div className="space-y-6">
             {/* Header with Title and Buttons */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                 <div className="flex-grow">
                     <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                        {title.split(' ').map((word, i) => (
-                            <span key={i} className={word === 'Saudi' || word === 'Arabia' || word === 'Beyond' || word === 'Events' ? 'text-primary' : ''}>
-                                {word}{' '}
-                            </span>
-                        ))}
+                        {title}
                     </h2>
                     <p className="text-gray-600">{description}</p>
                 </div>
 
-                {/* Navigation Buttons Row */}
-                <div className="flex items-center gap-2">
-                    <button
-                        onClick={() => scroll('left')}
-                        className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all shadow-sm"
-                        aria-label="Scroll left"
-                    >
-                        <ChevronLeft size={20} />
-                    </button>
-                    <button
-                        onClick={() => scroll('right')}
-                        className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition-all shadow-sm"
-                        aria-label="Scroll right"
-                    >
-                        <ChevronRight size={20} />
-                    </button>
+                {/* Navigation Buttons Row - Only See All Button now */}
+                <div className="flex items-center gap-4">
+                    {seeAllLink && (
+                        <Link
+                            to={seeAllLink}
+                            className="flex items-center space-x-2 px-6 py-2 bg-primary hover:bg-red-700 text-white font-semibold rounded-lg transition-all text-sm"
+                        >
+                            <span>See All</span>
+                            <ArrowRight size={16} />
+                        </Link>
+                    )}
                 </div>
             </div>
 
             {/* Slider Container */}
-            <div className="relative">
+            <div className="relative group/slider">
+                {/* Navigation Buttons - Positioned on sides */}
+                <button
+                    onClick={() => scroll('left')}
+                    className="absolute left-2 top-[120px] -translate-y-1/2 z-10 p-3 rounded-full bg-white/90 text-gray-900 hover:bg-primary hover:text-white transition-all shadow-xl border border-gray-100 hidden md:flex items-center justify-center opacity-70 group-hover/slider:opacity-100"
+                    aria-label="Scroll left"
+                >
+                    <ChevronLeft size={24} />
+                </button>
+
+                <button
+                    onClick={() => scroll('right')}
+                    className="absolute right-2 top-[120px] -translate-y-1/2 z-10 p-3 rounded-full bg-white/90 text-gray-900 hover:bg-primary hover:text-white transition-all shadow-xl border border-gray-100 hidden md:flex items-center justify-center opacity-70 group-hover/slider:opacity-100"
+                    aria-label="Scroll right"
+                >
+                    <ChevronRight size={24} />
+                </button>
                 {/* Scrollable Container */}
                 <div
                     ref={scrollRef}
-                    className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x"
+                    className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x px-2"
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                     {packages.map((pkg) => (
@@ -136,19 +143,22 @@ const VisitSaudi = () => {
 
     const sections = [
         {
-            title: "Discover Saudi Arabia",
-            description: "Experience diverse landscapes, rich culture, and unforgettable moments in Saudi Arabia.",
-            packages: saudiPackages.filter(pkg => pkg.ksaCategory === 'Discover Saudi Arabia')
+            title: "Experiences",
+            description: "Experience diverse landscapes and rich culture  in Saudi Arabia.",
+            packages: saudiPackages.filter(pkg => pkg.ksaCategory === 'Discover Saudi Arabia'),
+            seeAllLink: "/ksa/visit-saudi/experiences"
         },
         {
-            title: "Makkah, Madinah & Beyond",
+            title: "Events",
+            description: "Discover a vibrant calendar of entertainment and events year-round.",
+            packages: saudiPackages.filter(pkg => pkg.ksaCategory === 'Entertainment & Events'),
+            seeAllLink: "/ksa/visit-saudi/events"
+        },
+        {
+            title: "Spiritual Journeys",
             description: "Spiritual journeys and sacred experiences in the heart of the Kingdom.",
-            packages: saudiPackages.filter(pkg => pkg.ksaCategory === 'Makkah, Madinah & Beyond')
-        },
-        {
-            title: "Entertainment & Events",
-            description: "Discover a vibrant calendar of entertainment and events year-round",
-            packages: saudiPackages.filter(pkg => pkg.ksaCategory === 'Entertainment & Events')
+            packages: saudiPackages.filter(pkg => pkg.ksaCategory === 'Makkah, Madinah & Beyond'),
+            seeAllLink: "/ksa/visit-saudi/spiritual-journeys"
         }
     ];
 
@@ -162,6 +172,7 @@ const VisitSaudi = () => {
                             title={section.title}
                             description={section.description}
                             packages={section.packages}
+                            seeAllLink={section.seeAllLink}
                         />
                     </div>
                 ))}
